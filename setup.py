@@ -1,6 +1,9 @@
 from setuptools import setup
 import os
 
+from django.conf import settings
+settings.configure()
+
 import dboptions
 
 
@@ -37,7 +40,7 @@ setup(
     keywords="django, database, configuration, options, settings",
     author="Alexandr Emelin <frvzmb@gmail.com>",
     author_email="frvzmb@gmail.com",
-    url="https://github.com/FZambia/django-dboptions/",
+    url="https://github.com/FZambia/django-dboptions",
     license=dboptions.__license__,
     packages=get_packages('dboptions'),
     package_data=get_package_data('dboptions'),
