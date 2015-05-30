@@ -11,7 +11,7 @@ DBOPTIONS_CACHE_PREFIX = getattr(settings, "DBOPTIONS_CACHE_PREFIX", "DBOPTIONS_
 
 DBOPTIONS_CACHE_INTERVAL = getattr(settings, "DBOPTIONS_CACHE_INTERVAL", 60)
 
-DBOPTIONS_LIST = getattr(settings, "DBOPTIONS", {})
+DBOPTIONS_LIST = getattr(settings, "DBOPTIONS", [])
 
 DBOPTIONS_DICT = dict((x['name'], x) for x in DBOPTIONS_LIST)
 
