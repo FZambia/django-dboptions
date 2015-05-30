@@ -24,7 +24,7 @@ DBOPTIONS = [
 Now it's possible to change this options in admin web interface.
 
 And to use its value in code:
-```
+```python
 from dboptions import Option
 
 default_cache_interval = Option.get('DEFAULT_CACHE_INTERVAL')
