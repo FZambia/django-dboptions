@@ -21,7 +21,7 @@ DBOPTIONS = [
 ]
 ```
 
-Now it's possible to change this options in admin web interface.
+Now it's possible to add/change registered options in admin web interface.
 
 And to use its value in code:
 ```python
