@@ -8,6 +8,8 @@ pip install django-dboptions
 
 Add `dboptions` to INSTALLED_APPS
 
+Run migrations.
+
 Add `DBOPTIONS` list with registered options into `settings.py`:
 
 ```python
@@ -30,4 +32,4 @@ from dboptions import Option
 default_cache_interval = Option.get('DEFAULT_CACHE_INTERVAL')
 ```
 
-That's all for a moment
+See [test project example](https://github.com/FZambia/django-dboptions/tree/master/devproject)
