@@ -22,6 +22,17 @@ def get_option_cache_key(option_name):
     return DBOPTIONS_CACHE_PREFIX + option_name
 
 
+def cast_bool(value):
+    if not value:
+        return False
+    return value is True or value.lower() in ["1", "true", "yes"]
+
+
+cast_funcs = {
+    "bool": cast_bool
+}
+
+
 def to_final_value(option_name, option_value):
     """
     :param option_name: the name of registered option
@@ -34,11 +45,19 @@ def to_final_value(option_name, option_value):
             u"option {0} not registered in settings DBOPTIONS dictionary".format(option_name)
         )
 
-    cast_function = option.get("cast")
+    cast = option.get("cast")
 
-    if cast_function:
+    if cast:
+        if callable(cast):
+            cast_func = cast
+        else:
+            cast_func = cast_funcs.get(cast)
+            if not cast_func:
+                raise ImproperlyConfigured(
+                    u"option {0} has unknown cast function in settings DBOPTIONS dictionary".format(option_name)
+                )
         try:
-            final_value = cast_function(option_value)
+            final_value = cast_func(option_value)
         except Exception:
             raise ValueError(
                 u"option {0} with value {1} can not be casted to final value using "

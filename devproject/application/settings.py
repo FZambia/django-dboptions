@@ -65,6 +65,6 @@ DBOPTIONS = [
         "name": "NOTIFICATIONS_ENABLED",
         "default": True,
         "description": "allows to enable/disable notifications on site",
-        "cast": lambda x: x.lower() in ["1", "true", "yes"]
+        "cast": "bool"
     }
 ]
