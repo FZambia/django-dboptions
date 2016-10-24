@@ -1,10 +1,13 @@
 from setuptools import setup
-import os
 
 from django.conf import settings
 settings.configure()
 
+import django
+django.setup()
+
 import dboptions
+import os
 
 
 def get_packages(package):
@@ -56,6 +59,7 @@ setup(
         "Programming Language :: Python :: 2.6",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.3",
-        "Programming Language :: Python :: 3.4"
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5"
     ],
 )

@@ -11,11 +11,11 @@ class OptionForm(forms.ModelForm):
         exclude = ()
 
     def clean(self):
-        self.cleaned_data = super(OptionForm, self).clean()
-        name = self.cleaned_data['name']
-        value = self.cleaned_data['value']
+        cleaned_data = super(OptionForm, self).clean()
+        name = cleaned_data['name']
+        value = cleaned_data['value']
         try:
             to_final_value(name, value)
         except ValueError:
             raise forms.ValidationError(_("malformed value for option"))
-        return self.cleaned_data
+        return cleaned_data
